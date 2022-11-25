@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as BooksApi from "../BooksApi";
+import PropTypes, { object } from "prop-types";
 
 import Shelf from "./Shelf";
 
 const Search = ({ changeBookData, changeShowSearchPage, allBooks }) => {
   const [query, setQuery] = useState("");
   const [queriedBooks, setQueriedBooks] = useState([]);
+  
 
   function handleChangeShowSearchPage() {
     changeShowSearchPage();
@@ -75,3 +77,9 @@ const Search = ({ changeBookData, changeShowSearchPage, allBooks }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  allBooks: PropTypes.arrayOf(object),
+  changeBookData: PropTypes.func,
+  changeShowSearchPage: PropTypes.func,
+};
