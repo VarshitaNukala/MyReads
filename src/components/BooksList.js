@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import { object } from "prop-types";
 import Shelf from "./Shelf";
 const BooksList = ({ books, changeBookData }) => {
   const read = books.filter((book) => book.shelf === "read");
@@ -33,3 +35,8 @@ const BooksList = ({ books, changeBookData }) => {
 };
 
 export default BooksList;
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(object),
+  changeBookData: PropTypes.func,
+};
