@@ -1,4 +1,5 @@
 import Book from "./Book";
+import PropTypes, { object } from "prop-types";
 const Books = ({ booksData, changeBookData, returnedFromSearch }) => {
   const AllBooks = booksData.map((bookData) => {
     return (
@@ -13,3 +14,8 @@ const Books = ({ booksData, changeBookData, returnedFromSearch }) => {
   return AllBooks;
 };
 export default Books;
+Books.propTypes = {
+  booksData: PropTypes.arrayOf(object),
+  changeBookData: PropTypes.func,
+  returnedFromSearch: PropTypes.bool,
+};
