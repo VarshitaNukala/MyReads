@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 const BookShelfChanger = ({ bookData, changeBookData, returnedFromSearch }) => {
   const handleChange = (event) => {
-
     changeBookData(bookData, event.target.value);
   };
 
@@ -8,7 +8,7 @@ const BookShelfChanger = ({ bookData, changeBookData, returnedFromSearch }) => {
     <div className="book-shelf-changer">
       <select defaultValue={bookData.shelf} onChange={handleChange}>
         <option disabled>Move to...</option>
-        {!returnedFromSearch && <option value="none">None</option>}
+        <option value="none">None</option>
         <option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>
         <option value="read">Read</option>
@@ -18,3 +18,9 @@ const BookShelfChanger = ({ bookData, changeBookData, returnedFromSearch }) => {
 };
 
 export default BookShelfChanger;
+
+BookShelfChanger.propTypes = {
+  bookData: PropTypes.object,
+  changeBookData: PropTypes.func,
+  returnedFromSearch: PropTypes.bool,
+};
